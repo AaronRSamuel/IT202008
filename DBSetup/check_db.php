@@ -59,6 +59,13 @@ try{
 	echo "<pre>" . var_export($r, true) . "</pre>";
 	echo "<pre>" . var_export($stmt->errorInfo(), true) .
 		"</pre>";
+	
+	$stmt = $db->prepare("DELETE from `Test`
+			WHERE id = :id");
+	$r = $stmt->execute(array(":id"=>1));
+	echo "<pre>" . var_export($r, true) . "</pre>";
+	echo "<pre>" . var_export($stmt->errorInfo(), true) .
+		"</pre>";
 }
 catch(Exception $e){
 	echo $e->getMessage();
