@@ -39,13 +39,10 @@ if(  isset($_POST['email']) && isset($_POST['password']) && isset($_POST['conf']
 	$pass = 
 	require("config.php");
 	$db= new PDO($connection_string, $dbuser, $dbpass);
-        echo "should have connected";
-        $stmt = $db->prepare("INTSERT INTO `RegisterTest`(
-                                `email'
-                                `username` varchar(30) not null unique,
-                                `pin` int default 0,
-                                PRIMARY KEY (`id`)
-                                ) CHARACTER SET utf8 COLLATE utf8_general_ci"
-                        );	
+        $stmt = $db->prepare("INTSERT INTO `RegisterTest`
+                                (email, password) VALUES
+				(:email, :password)");
+        	$email = $_POST['email'];
+		$params = array("email
 }
 ?>
