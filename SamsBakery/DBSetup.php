@@ -4,7 +4,7 @@
 	echo "\n\r";
 
 	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-	
+
 	try{
 	$db= new PDO($connection_string, $dbuser, $dbpass);
 	echo "should have connected";
@@ -12,7 +12,7 @@
 			 `Coustomers` (
 				`id` int auto_increment not null,
 				`username` varchar(30) not null unique,
-				`password` int not null,
+				`password` varchar(64) not null,
 				`role` varchar(30),
 				`spent` int not null default 0,
 				PRIMARY KEY (`id`)

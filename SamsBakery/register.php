@@ -99,7 +99,8 @@ if(        isset($_POST['email'])
                         (email, password, role) VALUES
                         (:email, :password, :role)");
                 $email = $_POST['email'];
-        $params = array(":email"=> $email, ":password"=> $pass, "coustomer"=> $role);
+                $role = 'coustomer'
+        $params = array(":email"=> $email, ":password"=> $pass, ":role"=> $role);
         $stmt->execute($params);
         echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
         }
