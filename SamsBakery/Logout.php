@@ -14,7 +14,7 @@
            }
  </style>
   <body>
-      You are logged out!
+      <text> <font size="6"> <center> You are logged out! <center> <font> </text>
   </body>
 </html>
 <?php
