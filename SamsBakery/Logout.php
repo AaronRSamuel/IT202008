@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>My Project - Login</title>
+		<title>My Project - Logout</title>
 	</head>
   <style>
       body{
@@ -14,6 +14,7 @@
            }
  </style>
   <body>
+      You are logged out!
   </body>
 </html>
 <?php
