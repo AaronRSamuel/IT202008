@@ -8,7 +8,7 @@
 				`id` int auto_increment not null,
 				`username` varchar(30) not null unique,
 				`password` int not null,
-				`role` varchar(30) default 'coustomer',
+				`role` varchar(30),
 				`spent` int not null default 0,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"

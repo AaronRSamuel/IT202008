@@ -95,12 +95,11 @@ if(        isset($_POST['email'])
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         try {
                 $db = new PDO($connection_string, $dbuser, $dbpass);
-                $stmt = $db->prepare("INSERT INTO `Users`
-                        (email, password) VALUES
-                        (:email, :password)");
+                $stmt = $db->prepare("INSERT INTO `Coustomers`
+                        (email, password, role) VALUES
+                        (:email, :password, :role)");
                 $email = $_POST['email'];
-        $params = array(":email"=> $email,
-                                        ":password"=> $pass);
+        $params = array(":email"=> $email, ":password"=> $pass, "coustomer"=> $role);
         $stmt->execute($params);
         echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
         }
