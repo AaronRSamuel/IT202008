@@ -96,11 +96,10 @@ if(        isset($_POST['email'])
         try {
                 $db = new PDO($connection_string, $dbuser, $dbpass);
                 $stmt = $db->prepare("INSERT INTO `Coustomers`
-                        (email, password, role) VALUES
-                        (:email, :password, :role)");
+                        (email, password) VALUES
+                        (:email, :password)");
                 $email = $_POST['email'];
-                $role = 'coustomer';
-        $params = array(":email"=> $email, ":password"=> $pass, ":role"=> $role);
+        $params = array(":email"=> $email, ":password"=> $pass);
         $stmt->execute($params);
         echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
         }
