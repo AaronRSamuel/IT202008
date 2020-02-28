@@ -4,10 +4,11 @@
 	$db= new PDO($connection_string, $dbuser, $dbpass);
 	echo "should have connected";
 	$stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
-			 `Test` (
+			 `Customers` (
 				`id` int auto_increment not null,
 				`username` varchar(30) not null unique,
-				`pin` int default 0,
+				`passowrd` varchar(64) not null,
+				`phone number` int not null,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
 			);
@@ -19,4 +20,3 @@
 }
 
 ?>
-
