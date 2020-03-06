@@ -4,6 +4,7 @@
 <script>
 //modified from http://jsfiddle.net/bencentra/q1s8gmqv/?utm_source=website&utm_medium=embed&utm_campaign=q1s8gmqv
 var canvas;
+var count = 0;
 var context;
 var loop;
 var leftPaddle;
@@ -72,17 +73,17 @@ function bounceBall() {
         ball.sX += 1;
         // Add some "spin"
         if (keys.UP) {
-            ball.sY -= 1;
+            ball.sY -= 1 + (Math.random()*ball.sY*2.5);
         } else if (keys.DOWN) {
-            ball.sY += 1;
+            ball.sY += 1 + (Math.random()*ball.sY*2.5);
         }
     } else {
         ball.sX -= 1;
         // Add some "spin"
         if (keys.W) {
-            ball.sY -= 1;
+            ball.sY -= 1 + (Math.random()*ball.sX*2.5);
         } else if (keys.S) {
-            ball.sY += 1
+            ball.sY += 1 + (Math.random()*ball.sX*2.5);
         }
     }
     ball.sX *= -1;
@@ -151,17 +152,55 @@ function doAI() {
     clampToCanvas(rightPaddle);
 }
 function movePaddle() {
-    if (keys.W) {
-        leftPaddle.y -= leftPaddle.s;
+    if(leftScore > rightScore){
+      let difference = leftScore-rightScore;
+      if (difference > 4){
+        difference = 4;
+      }
+      if (keys.W) {
+          leftPaddle.y -= leftPaddle.s - (difference);
+      }
+      if (keys.S) {
+          leftPaddle.y += leftPaddle.s - (difference);
+      }
+      if (keys.UP) {
+          leftPaddle.y -= leftPaddle.s - (difference);
+      }
+      if (keys.DOWN) {
+          leftPaddle.y += leftPaddle.s - (difference);
+      }
     }
-    if (keys.S) {
-        leftPaddle.y += leftPaddle.s;
+    if(leftScore < rightScore){
+      let difference = rightScore-leftScore;
+      if (difference > 4){
+        difference = 4;
+      }
+      if (keys.W) {
+          leftPaddle.y -= leftPaddle.s + (difference);
+      }
+      if (keys.S) {
+          leftPaddle.y += leftPaddle.s + (difference);
+      }
+      if (keys.UP) {
+          leftPaddle.y -= leftPaddle.s + (difference);
+      }
+      if (keys.DOWN) {
+          leftPaddle.y += leftPaddle.s + (difference);
+      }
     }
-    if (keys.UP) {
-        leftPaddle.y -= leftPaddle.s;
-    }
-    if (keys.DOWN) {
-        leftPaddle.y += leftPaddle.s;
+    else{
+      if (keys.W) {
+          leftPaddle.y -= leftPaddle.s;
+      }
+      if (keys.S) {
+          leftPaddle.y += leftPaddle.s;
+      }
+      if (keys.UP) {
+          leftPaddle.y -= leftPaddle.s;
+      }
+      if (keys.DOWN) {
+          leftPaddle.y += leftPaddle.s;
+      }
     }
     clampToCanvas(leftPaddle);
 }
@@ -175,8 +214,15 @@ function clampToCanvas(paddle) {
 }
 function moveBall() {
     // Move the ball
-    ball.x += ball.sX;
-    ball.y += ball.sY;
+    if(leftScore > rightScore){
+      ball.x += ball.sX + ((leftScore - rightScore)/10);
+      ball.y += ball.sY;
+      ball.s = 7;
+    }
+    else{
+      ball.x += ball.sX;
+      ball.y += ball.sY;
+    }
     // Bounce the ball off the top/bottom
     if (ball.y < 0 || ball.y + ball.h > canvas.height) {
         ball.sY *= -1;
@@ -230,6 +276,9 @@ function gameLoop() {
     checkPaddleCollision();
     checkScore();
     drawScores();
+    if (leftScore > rightScore){
+      leftPaddle.c
+    }
     //draw stuff
     for (let i = 0; i < drawables.length; i++) {
         drawables[i].draw();
