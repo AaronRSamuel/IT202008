@@ -12,8 +12,6 @@
 			 `UserRoles` (
 				 	`id` int auto_increment not null,
  		 			`role_name` varchar(20) not null default 'coustomer',
- 	 				`date_created` timestamp not null default current_timestamp,
- 					`date_modified` timestamp not null default current_timestamp on update current_timestamp,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
 			);
