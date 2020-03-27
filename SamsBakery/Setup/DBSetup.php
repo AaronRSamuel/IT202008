@@ -14,6 +14,7 @@
 				`username` varchar(30) not null unique,
 				`password` varchar(64) not null,
 				`phone number` int not null,
+				`Orders` int Array int,
 				`spent` int not null default 0,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
