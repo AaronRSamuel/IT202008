@@ -9,9 +9,15 @@
 	$db= new PDO($connection_string, $dbuser, $dbpass);
 	echo "should have connected";
 	$stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
-			 `UserRoles` (
+			 `Orders` (
 				 	`id` int auto_increment not null,
- 		 			`role_name` varchar(20) not null default 'coustomer',
+          `user_id` int not null,
+ 			 		`phone_number` int not null,
+          `item_id` int not null,
+ 		 			`comment` varchar(64),
+ 	 				`date_created` timestamp not null default current_timestamp,
+ 					`date_due` timestamp not null,
+ 					`is_active` boolean default 1,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
 			);
