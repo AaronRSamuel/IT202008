@@ -13,8 +13,6 @@
 				 	`id` int auto_increment not null,
  		 			`item_name` varchar(32) not null,
 					`photo_url` varchar(120),
- 	 				`date_created` timestamp not null default current_timestamp,
- 					`date_modified` timestamp not null default current_timestamp on update current_timestamp,
  					`is_active` boolean default 1,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
