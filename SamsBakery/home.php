@@ -47,6 +47,16 @@
       <font size= "15">
         <center> Menu </center>
     </div>
-
+			<div>
+				<button type="button" name="Bread" onclick="<?php $_SESSION['Items']+="Bread" ?>">Bread</button>
 	</body>
 </html>
+
+<?php
+require ("config.php");
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db= new PDO($connection_string, $dbuser, $dbpass);
+$product_array = $db_handle->runQuery("SELECT * FROM Items");
+if (!empty($product_array)) {
+	foreach($product_array as $key=>$value){
+?>
