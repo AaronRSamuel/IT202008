@@ -27,7 +27,7 @@
 		<div align = "right">
 			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Logout.php';"
 			type="button" name="Logout" > Logout</button>
-			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Home.php';"
+			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.html';"
 			type="button" name="Home"> Home</button>
 		</div>
 	<body>
