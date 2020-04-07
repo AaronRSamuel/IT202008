@@ -57,6 +57,6 @@ require ("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 $product_array = $db_handle->runQuery("SELECT * FROM Items");
-if (!empty($product_array)) {
-	foreach($product_array as $key=>$value){
+//if (!empty($product_array)) {
+//	foreach($product_array as $key=>$value){
 ?>
