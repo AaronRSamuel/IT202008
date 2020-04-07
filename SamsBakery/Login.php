@@ -12,14 +12,31 @@
            background-size: cover;
            color: white;
            }
+					 .button {
+              background-color: gray; /* Green */
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+            }
  </style>
-  <body>
+	<header>
+		<div align = "right">
+			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Logout.php';"
+			type="button" name="Logout" > Logout</button>
+			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Home.php';"
+			type="button" name="Home"> Home</button>
+		</div>
+	<body>
 		<!-- This is how you comment -->
     <div>
         <font size="6">
         <center> Welcome Back! </center>
+		</div>
 
-    </div>
     <center><form name="loginform" id="myForm" method="POST">
 			<label for="email">Email: </label>
 			<input type="email" id="email" name="email" placeholder="Enter Email"/>
