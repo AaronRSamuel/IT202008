@@ -47,6 +47,30 @@
       <font size= "15">
         <center> Menu </center>
     </div>
-
+		<div>
+			<button type="button" name="Bread" onclick="<?php $_SESSION['Items']+="Bread" ?>">Bread</button>
+		</div>
+		<?php
+		require ("config.php");
+		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+		$db= new PDO($connection_string, $dbuser, $dbpass);
+		$product_array = $db_handle->runQuery("SELECT * FROM Items");
+		if (!empty($product_array)) {
+			foreach($product_array as $key=>$value){
+		?>
+		<div class="product-item">
+		<form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+		<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
+		<div class="product-tile-footer">
+		<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+		<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
+		<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+		</div>
+		</form>
+		</div>
+		<?php
+			}
+		}
+		?>
 	</body>
 </html>
