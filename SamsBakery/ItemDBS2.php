@@ -9,14 +9,16 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
 $db= new PDO($connection_string, $dbuser, $dbpass);
 echo "should have connected";
-$stmt = $db->prepare("CREATE TABLE `tblproduct` (
-  `id` int auto_increment NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `image` text NOT NULL,
-  `price` double(10,2) NOT NULL,
+$stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
+  `tblproduct` (
+    `id` int auto_increment NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `code` varchar(255) NOT NULL,
+    `image` text NOT NULL,
+    `price` float (10,2) NOT NULL,
   PRIMARY KEY ('id')
-) CHARACTER SET utf8_general_ci");
+) CHARACTER SET utf8_general_ci"
+);
 $stmt->execute();
 }
 catch(Exception $e){
