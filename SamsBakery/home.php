@@ -62,7 +62,15 @@
         <center> Menu </center>
     </div>
 		<div>
-			<button type="button" name="Bread" onclick="myAjax()">Bread</button>
+			<button type="submit" name="Bread">Bread</button>
 		</div>
 	</body>
 </html>
+
+<?php
+
+if(isset($_POST["submit"])) {
+		$_SESSION['Items'] = "Bread";
+ }
+
+ ?>
