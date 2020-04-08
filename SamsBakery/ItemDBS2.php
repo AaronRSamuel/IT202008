@@ -1,5 +1,4 @@
 <?php
-
 require ("config.php");
 echo "DBUser: " . $dbuser;
 echo "\n\r";
@@ -17,7 +16,7 @@ $stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
     `image` text NOT NULL,
     `price` float (10,2) NOT NULL,
   PRIMARY KEY ('id')
-) CHARACTER SET utf8_general_ci"
+) CHARACTER SET utf8 COLLATE utf8_general_ci"
 );
 $stmt->execute();
 }
