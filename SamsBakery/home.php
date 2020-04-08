@@ -71,6 +71,7 @@
 
 if(isset($_POST["submit"])) {
 		$_SESSION['Items'] = "Bread";
+		alert("Hello! I am an alert box!!");
  }
 
  ?>
