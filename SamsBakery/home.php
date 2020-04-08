@@ -30,7 +30,8 @@
    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Login.php';"
            class = "button" name="Login"> Login & Logout
    </button>
-   <right> <button class = "button" type="button" name="button"> Cart</button>
+   <right> <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Cart.php';"
+		  name="button"> Cart</button>
  </header>
   <body>
 		<!-- This is how you comment -->
@@ -54,7 +55,7 @@
 		require ("config.php");
 		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 		$db= new PDO($connection_string, $dbuser, $dbpass);
-		$product_array = $db_handle->runQuery("SELECT * FROM Items");
+		$product_array = $db_handle->runQuery("SELECT * FROM tblproduct");
 		if (!empty($product_array)) {
 			foreach($product_array as $key=>$value){
 		?>
