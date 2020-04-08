@@ -1,4 +1,3 @@
-<html>
-<header> Cart: </header>
-<<?php echo $_SESSION ['Items']?>
-</html>
+<?php
+  echo $_SESSION['Items'];
+ ?>
