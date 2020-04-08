@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 $phone = $_POST['phone'];
 $comment = $_POST['comment'];
 $user = $_SESSION ['user'];
-$user_Id = var_dump($user->offsetGet(0));
+$user_Id = $user['id'];
 
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
