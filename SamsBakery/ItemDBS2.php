@@ -15,7 +15,7 @@ $stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
     `code` varchar(255) NOT NULL,
     `image` varchar(255) NOT NULL,
     `price` double (10,2) NOT NULL,
-  PRIMARY KEY ('id')
+  PRIMARY KEY (`id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci"
 );
 $stmt->execute();
