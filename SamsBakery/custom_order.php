@@ -18,7 +18,7 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 if(        isset($_POST['phone'])
-        && isset($_POST['password'])
+        && isset($_POST['password']){
 $phone = $_POST['phone'];
 $comment = $_POST['comment'];
 $user = $_SESSION ['user'];
@@ -33,4 +33,5 @@ $stmt = $db->prepare(" INSERT INTO `Orders`
       (:user_ID, :phone, :item_id, :comment)");
 $params = array(":user_ID"=> $user_Id, ":phone"=> $phone, ":item_id" => 33, ":comment" => $comment);
 $stmt->execute($params);
+}
 ?>
