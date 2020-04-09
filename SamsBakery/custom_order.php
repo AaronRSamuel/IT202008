@@ -1,21 +1,5 @@
 <?php
 session_start();
- ?>
-<html>
-<body>
-  <div>
-    <center><form name="coustom" id="coustom" method="POST">
-      <label for="phone">Phone Number: </label>
-      <input type="int" id="phone" name="phone" placeholder="Enter phone number not dashes"/>
-      <label for="comment">Order: </label>
-      <input type="text" id="itemnumber" name="comment" placeholder="Enter what you would like"/>
-      <input type="submit" value="submit"/>
-    </form></center>
-  </div>
-</body>
-</html>
-
-<?php
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -36,4 +20,18 @@ $stmt = $db->prepare(" INSERT INTO `Orders`
 $params = array(":user_ID"=> $user_Id, ":phone"=> $phone, ":item_id" => 33, ":comment" => $comment);
 $stmt->execute($params);
 echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
- ?>
+?>
+
+<html>
+<body>
+  <div>
+    <center><form name="coustom" id="coustom" method="POST">
+      <label for="phone">Phone Number: </label>
+      <input type="int" id="phone" name="phone" placeholder="Enter phone number not dashes"/>
+      <label for="comment">Order: </label>
+      <input type="text" id="itemnumber" name="comment" placeholder="Enter what you would like"/>
+      <input type="submit" value="submit"/>
+    </form></center>
+  </div>
+</body>
+</html>
