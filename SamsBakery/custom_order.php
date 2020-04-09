@@ -18,7 +18,7 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 if(        isset($_POST['phone'])
-        && isset($_POST['password']){
+        && isset($_POST['comment']){
 $phone = $_POST['phone'];
 $comment = $_POST['comment'];
 $user = $_SESSION ['user'];
