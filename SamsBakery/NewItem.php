@@ -20,9 +20,10 @@
 ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-if(        isset($_POST['email'])
-        && isset($_POST['password'])
-        && isset($_POST['confirm'])
+if(        isset($_POST['name'])
+        && isset($_POST['price'])
+        && isset($_POST['listLoc'])
+        && isset($_POST['photo'])
         ){
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
