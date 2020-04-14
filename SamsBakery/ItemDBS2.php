@@ -12,9 +12,9 @@ $stmt = $db->prepare("CREATE TABLE IF NOT EXISTS
   `tblproduct` (
     `id` int auto_increment not null,
     `name` varchar(255) NOT NULL,
-    `code` varchar(255) NOT NULL,
+    `code` int NOT NULL,
     `image` varchar(255) NOT NULL,
-    `price` double (10,2) NOT NULL,
+    `price` int NOT NULL,
   PRIMARY KEY (`id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci"
 );
