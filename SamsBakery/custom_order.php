@@ -25,6 +25,7 @@ $user_Id = $_SESSION['id'];
 
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+try{
 $db = new PDO($connection_string, $dbuser, $dbpass);
 
 $stmt = $db->prepare(" INSERT INTO `Orders`
@@ -32,5 +33,10 @@ $stmt = $db->prepare(" INSERT INTO `Orders`
       (:user_ID, :phone, :item_id, :comment)");
 $params = array(":user_ID"=> $user_Id, ":phone"=> $phone, ":item_id" => 33, ":comment" => $comment);
 $stmt->execute($params);
+}
+catch(Exception $e){
+  echo $e->getMessage();
+  exit();
+}
 }
 ?>
