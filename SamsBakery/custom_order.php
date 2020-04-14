@@ -33,9 +33,9 @@ $stmt = $db->prepare(" INSERT INTO `Orders`
 $params = array(":user_ID"=> $user_Id, ":phone"=> $phone, ":item_id" => 33, ":comment" => $comment);
 $stmt->execute($params);
 }
+}
 catch(Exception $e){
   echo $e->getMessage();
   exit();
-}
 }
 ?>
