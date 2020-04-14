@@ -17,10 +17,14 @@
 </html>
 
 <?php
-require ("config.php");
-echo "DBUser: " . $dbuser;
-echo "\n\r";
-
+ini_set('display_errors',1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+if(        isset($_POST['email'])
+        && isset($_POST['password'])
+        && isset($_POST['confirm'])
+        ){
+require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
 try{
@@ -40,5 +44,6 @@ $stmt = $db->prepare("INSERT INTO
 catch(Exception $e){
 echo $e->getMessage();
 exit("It didn't work");
+}
 }
  ?>
