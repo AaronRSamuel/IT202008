@@ -38,7 +38,7 @@ $stmt = $db->prepare("INSERT INTO
   $code = $_POST['listLoc'];
   $image = $_POST['photo'];
   $price = $_POST['price'];
-  $params = array(":name"=> $name, ":code"=> $code,":photo"=> $image,":image"=> $image);
+  $params = array(":name"=> $name, ":code"=> $code,":photo"=> $image,":price"=> $price);
   $stmt->execute($params);
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
