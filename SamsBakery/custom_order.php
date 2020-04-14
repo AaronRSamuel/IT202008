@@ -21,8 +21,7 @@ if(        isset($_POST['phone'])
         && isset($_POST['comment'])){
 $phone = $_POST['phone'];
 $comment = $_POST['comment'];
-$user = $_SESSION ['user'];
-$user_Id = $user['id'];
+$user_Id = $_SESSION['id'];
 
 require("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";

@@ -89,6 +89,7 @@ session_start();
   					"email"=>$result['email'],
   					"roles"=> $roles);
   				$_SESSION['user'] = $user;
+					$_SESSION['id'] = $id;
   				echo "Session: <pre>" . var_export($_SESSION, true) . "</pre>";
   			}
   			else{

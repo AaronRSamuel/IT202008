@@ -1,6 +1,7 @@
 <?php
 session_start();
- ?>
+echo $_SESSION;
+?>
 <html>
 	<head>
 		<title>Home</title>
