@@ -5,7 +5,7 @@
       <label for="phone">Phone Number: </label>
       <input type="int" id="phone" name="phone" placeholder="Enter phone number not dashes"/>
       <label for="comment">Order: </label>
-      <input type="text" id="itemnumber" name="comment" placeholder="Enter what you would like"/>
+      <input type="text" id="comment" name="comment" placeholder="Enter what you would like"/>
       <input type="submit" value="submit"/>
     </form></center>
   </div>
