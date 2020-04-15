@@ -51,7 +51,7 @@ echo $_SESSION;
 		  name="button"> Cart</button>
 		</button>
 		<button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/custom_order.php';"
-			name="button"> Cart</button>
+			name="button"> Coustom Order</button>
  </header>
   <body>
 		<!-- This is how you comment -->
