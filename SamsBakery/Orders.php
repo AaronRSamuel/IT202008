@@ -22,9 +22,11 @@ exit("It didn't work");
     <table>
     <thead>
         <tr>
-            <th>This</th>
-            <th>That</th>
-            <th>The Other</th>
+            <th>User ID |</th>
+            <th>Phone Number|</th>
+            <th>Item ID|</th>
+            <th>Item|</th>
+            <th>Date created|</th>
         </tr>
     </thead>
     <tbody>
