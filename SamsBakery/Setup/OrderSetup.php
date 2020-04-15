@@ -16,7 +16,7 @@
           `item_id` int not null,
  		 			`comment` varchar(64),
  	 				`date_created` timestamp not null default current_timestamp,
- 					`date_due` timestamp not null,
+ 					`date_due` timestamp,
  					`is_active` boolean default 1,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
