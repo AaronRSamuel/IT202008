@@ -1,38 +1,39 @@
+<html lang="en" dir="ltr">
+  <head>
+    <title></title>
+  </head>
+  <style>
+    table.db-table 		{ border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
+    table.db-table th	{ background:#eee; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+    table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
+  </style>
+  <body>
+
+  </body>
+</html>
 <?php
 require ("config.php");
-echo "DBUser: " . $dbuser;
-echo "\n\r";
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+mysql_select_db('Orders',$connection);
+$result = mysql_query('SHOW TABLES',$connection) or die('cannot show tables');
+while($tableName = mysql_fetch_row($result)) {
 
-$result = mysqli_query($connection_string,"SELECT * FROM Orders");
+	$table = $tableName[0];
 
-echo "<table border='1'>
-<tr>
-<th>id</th>
-<th>user_id</th>
-<th>phone_number</th>
-<th>item_id</th>
-<th>comment</th>
-<th>date_created</th>
-<th>date_due</th>
-<th>is_active</th>
-</tr>";
-
-while($row = mysqli_fetch_array($result))
-{
-echo "<tr>";
-echo "<td>" . $row['id'] . "</td>";
-echo "<td>" . $row['user_id'] . "</td>";
-echo "<td>" . $row['phone_number'] . "</td>";
-echo "<td>" . $row['item_id'] . "</td>";
-echo "<td>" . $row['comment'] . "</td>";
-echo "<td>" . $row['date_created'] . "</td>";
-echo "<td>" . $row['date_due'] . "</td>";
-echo "<td>" . $row['is_active'] . "</td>";
-echo "</tr>";
+	echo '<h3>',$table,'</h3>';
+	$result2 = mysql_query('SHOW COLUMNS FROM '.$table) or die('cannot show columns from '.$table);
+	if(mysql_num_rows($result2)) {
+		echo '<table cellpadding="0" cellspacing="0" class="db-table">';
+		echo '<tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default<th>Extra</th></tr>';
+		while($row2 = mysql_fetch_row($result2)) {
+			echo '<tr>';
+			foreach($row2 as $key=>$value) {
+				echo '<td>',$value,'</td>';
+			}
+			echo '</tr>';
+		}
+		echo '</table><br />';
+	}
 }
-echo "</table>";
-
-mysqli_close($connection_string);
 ?>
