@@ -1,39 +1,45 @@
-<html lang="en" dir="ltr">
-  <head>
-    <title></title>
-  </head>
-  <style>
-    table.db-table 		{ border-right:1px solid #ccc; border-bottom:1px solid #ccc; }
-    table.db-table th	{ background:#eee; padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
-    table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px solid #ccc; }
-  </style>
-  <body>
-
-  </body>
-</html>
 <?php
 require ("config.php");
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-mysql_select_db('Orders',$connection);
-$result = mysql_query('SHOW TABLES',$connection) or die('cannot show tables');
-while($tableName = mysql_fetch_row($result)) {
-
-	$table = $tableName[0];
-
-	echo '<h3>',$table,'</h3>';
-	$result2 = mysql_query('SHOW COLUMNS FROM '.$table) or die('cannot show columns from '.$table);
-	if(mysql_num_rows($result2)) {
-		echo '<table cellpadding="0" cellspacing="0" class="db-table">';
-		echo '<tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default<th>Extra</th></tr>';
-		while($row2 = mysql_fetch_row($result2)) {
-			echo '<tr>';
-			foreach($row2 as $key=>$value) {
-				echo '<td>',$value,'</td>';
-			}
-			echo '</tr>';
-		}
-		echo '</table><br />';
-	}
+try{
+  $db= new PDO($connection_string, $dbuser, $dbpass);
+  echo "should have connected";
+  $sql = $db->prepare("SELECT user_id, phone_number, item_id, comment, date_created from Orders");
+  $sql->execute();
+}
+catch(Exception $e){
+echo $e->getMessage();
+exit("It didn't work");
 }
 ?>
+
+<html lang="en" dir="ltr">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <table>
+    <thead>
+        <tr>
+            <th>This</th>
+            <th>That</th>
+            <th>The Other</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Use a while loop to make a table row for every DB row-->
+        <?php while( $row = $sql->fetch()) : ?>
+        <tr>
+            <!--Each table column is echoed in to a td cell-->
+            <td><?php echo $row['user_id']; ?></td>
+            <td><?php echo $row['phone_number']; ?></td>
+            <td><?php echo $row['item_id']; ?></td>
+            <td><?php echo $row['comment']; ?></td>
+            <td><?php echo $row['date_created']; ?></td>
+        </tr>
+        <?php endwhile ?>
+    </tbody>
+</table>
+  </body>
+</html>
