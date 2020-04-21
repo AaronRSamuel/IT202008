@@ -30,10 +30,8 @@ exit("It didn't work");
         </tr>
     </thead>
     <tbody>
-        <!--Use a while loop to make a table row for every DB row-->
         <?php while( $row = $sql->fetch()) : ?>
         <tr>
-            <!--Each table column is echoed in to a td cell-->
             <td><?php echo $row['user_id']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
             <td><?php echo $row['item_id']; ?></td>
