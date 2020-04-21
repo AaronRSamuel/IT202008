@@ -69,7 +69,7 @@ echo $_SESSION['id'];
         <center> Menu </center>
     </div>
 		<div>
-			<button type="submit" name="Bread">Bread</button>
+			<input type="submit" style="background-image:url('https://ofbatteranddough.com/wp-content/uploads/2017/03/Homemade-white-sandwich-bread-12.jpg')">Bread</input>
 		</div>
 	</body>
 </html>
