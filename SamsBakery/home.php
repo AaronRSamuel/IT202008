@@ -69,16 +69,28 @@ echo $_SESSION['id'];
         <center> Menu </center>
     </div>
 		<div>
-			<input type="submit" style="background-image:url('https://ofbatteranddough.com/wp-content/uploads/2017/03/Homemade-white-sandwich-bread-12.jpg')">Bread</input>
+			<button type="submit" name="Bread" value = "Bread">Bread</button>
 		</div>
 	</body>
 </html>
 
 <?php
+require ("config.php");
+$user_Id = $_SESSION['id'];
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
-if(isset($_POST["submit"])) {
-		$_SESSION['Items'] = "Bread";
-		alert("Hello! I am an alert box!!");
+if(isset($_POST["Bread"])) {
+	require ("config.php");
+	$user_Id = $_SESSION['id'];
+	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+	try{
+		$db= new PDO($connection_string, $dbuser, $dbpass);
+		$stmt = $db->prepare(" INSERT INTO `Orders`
+          (user_id, item_id) VALUES
+          (:user_ID, :item_id)");
+    $params = array(":user_ID"=> $user_Id, ":item_id" => 1);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
  }
 
  ?>
