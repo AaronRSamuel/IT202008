@@ -49,9 +49,10 @@ if(        isset($_POST['password'])
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           try {
               $db = new PDO($connection_string, $dbuser, $dbpass);
-              $stmt = $db->prepare("UPDATE `Coustomers`where id=`$id`
+              $stmt = $db->prepare("UPDATE `Coustomers`
                       (password) VALUES
-                      (:password)");
+                      (:password)
+                      WHERE `id=$id` ");
       $params = array(":password"=> $pass);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
