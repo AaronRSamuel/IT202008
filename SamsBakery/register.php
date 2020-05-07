@@ -77,7 +77,8 @@ error_reporting(E_ALL);
 if(        isset($_POST['email'])
         && isset($_POST['password'])
         && isset($_POST['confirm'])
-        ){                                                                                                                                    $pass = $_POST['password'];
+        ){
+        $pass = $_POST['password'];
         $conf = $_POST['confirm'];
         if($pass == $conf){
                 //echo "All good, 'registering user'";
