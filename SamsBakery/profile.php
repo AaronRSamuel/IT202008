@@ -24,7 +24,7 @@ echo $_SESSION['id'];
       <lable for ="conf"> Confirm Password:</lable>
       <input type ="password" id= "conf" name="confirm" placeholder = Confirm passowrd/>
       <br>
-      <input type="submit" value="Register" style="height:50px; width:100px" />
+      <input type="submit" value="Change Password" style="height:50px; width:100px" />
     </form>
   </body>
 </html>
@@ -49,7 +49,7 @@ if(        isset($_POST['password'])
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           try {
               $db = new PDO($connection_string, $dbuser, $dbpass);
-              $stmt = $db->prepare("UPDATE `Coustomers`where id='$id'
+              $stmt = $db->prepare("UPDATE `Coustomers`where id=`$id`
                       (password) VALUES
                       (:password)");
       $params = array(":password"=> $pass);
