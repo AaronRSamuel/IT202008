@@ -1,6 +1,12 @@
 <?php
 session_start();
-echo $_SESSION['id'];
+if(isset($_SESSION['id'])){
+  echo $_SESSION['id'];
+}
+else{
+  header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+}
+
 ?>
 
 <html>
@@ -50,8 +56,7 @@ if(        isset($_POST['password'])
           try {
               $db = new PDO($connection_string, $dbuser, $dbpass);
               $stmt = $db->prepare("UPDATE `Coustomers`
-                      (password) VALUES
-                      (:password)
+                      SET `password = :password`
                       WHERE `id=$id` ");
       $params = array(":password"=> $pass);
       $stmt->execute($params);
