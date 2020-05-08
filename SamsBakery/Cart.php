@@ -41,10 +41,14 @@ exit("It didn't work");
       <?php endwhile ?>
     </tbody>
     </table>
+    <form id = "order">
+      <input type="submit" value="order"/>
+    </form>
   </body>
 </html>
 
 <?php
-  session_start();
-
+  if($_POST['order']){
+    $sql = $db->prepare("INSERT INTO `Order` SELECT item_name, item_price, from Orders where user_id= $_SESSION['id']");
+  }
 ?>
