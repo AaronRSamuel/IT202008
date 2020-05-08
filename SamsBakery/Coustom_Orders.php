@@ -1,11 +1,13 @@
 <?php
+session_start();
+echo $_SESSION['id'];
 require ("config.php");
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
   echo "should have connected";
-  $sql = $db->prepare("SELECT user_id, phone_number, comment, date_created from Orders");
+  $sql = $db->prepare("SELECT user_id, phone_number, comment, date_created from Orders where item_id= '33'");
   $sql->execute();
 }
 catch(Exception $e){
