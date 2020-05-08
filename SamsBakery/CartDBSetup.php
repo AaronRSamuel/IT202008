@@ -12,6 +12,8 @@
 			 `Cart` (
 				 	`id` int auto_increment not null,
           `user_id` int not null,
+          `item_price` int not null,
+          `item_name` varchar(30) not null,
           `item_id` int not null,
 				PRIMARY KEY (`id`)
 				) CHARACTER SET utf8 COLLATE utf8_general_ci"
