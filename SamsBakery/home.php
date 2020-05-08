@@ -47,8 +47,8 @@ echo $_SESSION['id'];
    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Login.php';"
            class = "button" name="Login"> Login & Logout
    </button>
-   <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Cart.php';"
-		  name="button"> Cart</button>
+   <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/profile.php';"
+		  name="button"> Profile</button>
 		</button>
 		<button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/custom_order.php';"
 			name="button"> Coustom Order</button>
