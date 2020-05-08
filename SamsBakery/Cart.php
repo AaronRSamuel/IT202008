@@ -49,6 +49,6 @@ exit("It didn't work");
 
 <?php
   if($_POST['order']){
-    $sql = $db->prepare("INSERT INTO `Order` SELECT item_name, item_price, from Orders where user_id= '$_SESSION['id']''");
+    $sql = $db->prepare("INSERT INTO Order SELECT item_name, item_price, from Cart where user_id= '$_SESSION['id']''");
   }
 ?>
