@@ -56,7 +56,7 @@ if(        isset($_POST['password'])
           $conf = $_POST['confirm'];
           if($pass == $conf){
                   //echo "All good, 'registering user'";
-                  $msg = "All good, your registered";
+                  $msg = "All good, your password is changed";
           }
           else{
 
