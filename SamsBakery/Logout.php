@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>My Project - Logout</title>
+		<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php';"
+    type="button" name="Home"> Home</button>
 	</head>
   <style>
       body{
@@ -12,6 +14,16 @@
            background-size: cover;
            color: white;
            }
+					 .button {
+              background-color: gray; /* Green */
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+            }
  </style>
   <body>
       <text> <font size="6"> <center> You are logged out! <center> <font> </text>
