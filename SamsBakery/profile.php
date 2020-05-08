@@ -19,6 +19,18 @@ else{
     <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Cart.php';"
  		  name="button"> Cart</button>
   </head>
+  <style>
+  .button {
+     background-color: gray;
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+   }
+  </style>
   <body>
     <form method="post">
       <label for="pass">Current Password:
