@@ -1,13 +1,14 @@
 <?php
 session_start();
-echo $_SESSION['id'];
+$id = $_SESSION['id'];
 require ("config.php");
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
   echo "should have connected";
-  $sql = $db->prepare("SELECT item_name, item_price, from Orders where user_id= $_SESSION['id']");
+  $query = "SELECT item_name, item_price from `Cart` where user_id = :id";
+  $sql = $db->prepare($query);
   $sql->execute();
 }
 catch(Exception $e){
@@ -40,7 +41,7 @@ exit("It didn't work");
       </tr>
       <?php endwhile ?>
     </tbody>
-    </table>
+  </table>
     <form id = "order">
       <input type="submit" value="order"/>
     </form>
@@ -49,6 +50,13 @@ exit("It didn't work");
 
 <?php
   if($_POST['order']){
-    $sql = $db->prepare("INSERT INTO Order SELECT item_name, item_price, from Cart where user_id= '$_SESSION['id']''");
+    $sql = $db->prepare("SELECT item_id from Cart where user_id= :id");
+    while( $row = $sql->fetch()) :
+      $stmt = $db->prepare("INSERT INTO `Order`
+         (item_id) VALUES
+         (:item_id)");
+      $params = array(":item_id" => $row['item_id']);
+      $stmt->execute($params);
   }
+  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 ?>
