@@ -58,7 +58,7 @@ exit("It didn't work");
   if($_POST['order']){
     $sql = $db->prepare("SELECT item_id from Cart where user_id= :id");
     while( $row = $sql->fetch()){
-      $stmt = $db->prepare("INSERT INTO `Order`
+      $stmt = $db->prepare("INSERT INTO `Orders`
          (item_id) VALUES
          (:item_id)");
       $params = array(":item_id" => $row['item_id']);
