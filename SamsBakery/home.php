@@ -6,19 +6,6 @@ echo $_SESSION['id'];
 	<head>
 		<title>Home</title>
 	</head>
-	<script>
-	function myAjax() {
-      $.ajax({
-           type: "POST",
-           url: 'your_url/ajax.php',
-           data:{action:'call_this'},
-           success:function(html) {
-             alert(html);
-           }
-
-      });
- 	}
-	</script>
   <style>
       body{
            background-color: black;
@@ -80,15 +67,11 @@ $user_Id = $_SESSION['id'];
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
 if(isset($_POST["Bread"])) {
-	require ("config.php");
-	$user_Id = $_SESSION['id'];
-	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-
 		$db= new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare(" INSERT INTO `Orders`
-          (user_id, item_id) VALUES
-          (:user_ID, :item_id)");
-    $params = array(":user_ID"=> $user_Id, ":item_id" => 1);
+		$stmt = $db->prepare(" INSERT INTO `Cart`
+          (user_id, item_id, item_name, item_price) VALUES
+          (:user_ID, :item_id, :item_name, :item_price)");
+    $params = array(":user_ID"=> $user_Id, ":item_id" => 1, ":item_name" => "Bread", ":item_price" => 3);
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
  }
