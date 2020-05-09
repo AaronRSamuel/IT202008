@@ -57,13 +57,13 @@ exit("It didn't work");
 <?php
   if($_POST['order']){
     $sql = $db->prepare("SELECT item_id from Cart where user_id= :id");
-    while( $row = $sql->fetch()) :
+    while( $row = $sql->fetch()){
       $stmt = $db->prepare("INSERT INTO `Order`
          (item_id) VALUES
          (:item_id)");
       $params = array(":item_id" => $row['item_id']);
       $stmt->execute($params);
-    endwhile;
+    }
   }
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 ?>
