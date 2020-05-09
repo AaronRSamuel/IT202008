@@ -18,7 +18,13 @@ exit("It didn't work");
 ?>
 <html lang="en">
   <head>
-    <title></title>
+    <title> Cart </title>
+    <button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php';"
+    type="button" name="Home"> Home</button>
+    <button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Logout.php';"
+    type="button" name="Logout" > Logout</button>
+    <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/profile.php';"
+    name="button"> Profile</button>
   </head>
   <style>
   table, th, td {
