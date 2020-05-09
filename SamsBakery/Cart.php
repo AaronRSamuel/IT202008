@@ -57,7 +57,7 @@ exit("It didn't work");
          (:item_id)");
       $params = array(":item_id" => $row['item_id']);
       $stmt->execute($params);
-    endwhile
+    endwhile;
   }
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 ?>
