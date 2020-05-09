@@ -7,7 +7,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
   echo "should have connected";
-  $query = "SELECT item_name, item_price from `Cart` where user_id = :id";
+  $query = "SELECT item_name, item_price from Cart where user_id = :id";
   $sql = $db->prepare($query);
   $sql->execute();
 }
