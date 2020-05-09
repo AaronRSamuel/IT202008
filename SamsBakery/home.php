@@ -56,7 +56,9 @@ echo $_SESSION['id'];
         <center> Menu </center>
     </div>
 		<div>
-			<button type="submit" name="Bread" value = "Bread">Bread</button>
+			<form class="" action="index.html" method="post">
+				<button type="submit" name="Bread" value = "Bread">Bread</button>
+			</form>
 		</div>
 	</body>
 </html>
