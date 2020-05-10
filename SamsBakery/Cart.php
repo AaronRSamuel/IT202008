@@ -2,6 +2,12 @@
 session_start();
 $id = $_SESSION['id'];
 require ("config.php");
+if(isset($_SESSION['id'])){
+  echo $_SESSION['id'];
+}
+else{
+  header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+}
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
@@ -59,7 +65,7 @@ exit("It didn't work");
     $sql = $db->prepare("SELECT item_id from Cart where user_id= :id");
     while( $row = $sql->fetch()){
       $stmt = $db->prepare("INSERT INTO `Orders`
-         (item_id) VALUES
+         (item_id, user_id, item_name) VALUES
          (:item_id)");
       $params = array(":item_id" => $row['item_id']);
       $stmt->execute($params);

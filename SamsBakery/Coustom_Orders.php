@@ -2,6 +2,12 @@
 session_start();
 echo $_SESSION['id'];
 require ("config.php");
+if(isset($_SESSION['id'])){
+  echo $_SESSION['id'];
+}
+else{
+  header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+}
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{

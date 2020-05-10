@@ -1,5 +1,17 @@
 <?php
 require ("config.php");
+if(isset($_SESSION['id'])){
+  if($_SESSION['id'] == 3){
+    echo 'hello admin';
+  }
+  else{
+    header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+  }
+}
+else{
+  header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+}
+
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
