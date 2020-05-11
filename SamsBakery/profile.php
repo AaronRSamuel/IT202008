@@ -48,6 +48,7 @@ else{
 </html>
 
 <?php
+echo "php start";
 if(        isset($_POST['password'])
         && isset($_POST['newPassword'])
         && isset($_POST['confirm'])
