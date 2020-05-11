@@ -59,7 +59,6 @@ if(        isset($_POST['password'])
           $current = $sql->fetch();
           if($oldpass != $current){
             echo "wrong password";
-            exit();
           }
           if($pass == $conf){
                   //echo "All good, 'registering user'";
