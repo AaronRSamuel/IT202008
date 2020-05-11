@@ -48,16 +48,18 @@ else{
 </html>
 
 <?php
-echo "php start";
+require("config.php");
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db = new PDO($connection_string, $dbuser, $dbpass);
 if(        isset($_POST['password'])
         && isset($_POST['newPassword'])
         && isset($_POST['confirm'])
         ){
-          echo "php start";
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
           $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
+          echo "php 1";
           $params = array(":id"=> $id);
           $current = $sql->fetch($params);
           echo $current;
@@ -76,10 +78,9 @@ if(        isset($_POST['password'])
             exit();
           }
           $pass = password_hash($pass, PASSWORD_BCRYPT);
-          require("config.php");
-          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+
           try {
-              $db = new PDO($connection_string, $dbuser, $dbpass);
+
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET password = :password
                       WHERE id= :id ");
