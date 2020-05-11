@@ -59,11 +59,8 @@ if(        isset($_POST['password'])
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
           $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
-          echo "php 1";
-          $params = array(":id"=> $id);
-          $current = $sql->fetch($params);
-          echo $current;
-          echo $pass;
+          $sql->execute(":id"=> $id);
+          $current = $sql->fetch(PDO::FETCH_ASSOC);
           if($oldpass != $current){
             echo "wrong password";
           }
