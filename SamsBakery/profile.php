@@ -78,19 +78,18 @@ if(        isset($_POST['password'])
             exit();
           }
           $pass = password_hash($pass, PASSWORD_BCRYPT);
-
+          echo "hashed";
           try {
-
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET password = :password
                       WHERE id= :id ");
-      $params = array(":password"=> $pass, ":id"=> $id);
-      $stmt->execute($params);
-      echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-      }
-      catch(Exception $e){
+              $params = array(":password"=> $pass, ":id"=> $id);
+              $stmt->execute($params);
+              echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+            }
+        catch(Exception $e){
               echo $e->getMessage();
               exit();
-      }
+        }
 }
 ?>
