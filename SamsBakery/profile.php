@@ -54,7 +54,7 @@ if(        isset($_POST['password'])
         ){
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
-          $oldpass = $_post['password'];
+          $oldpass = $_POST['password'];
           $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
           $params = array(":id"=> $id);
           $current = $sql->fetch($params);
