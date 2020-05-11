@@ -55,18 +55,17 @@ if(        isset($_POST['password'])
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_post['password'];
-          $sql = $db->prepare("SELECT password from Coustomers where user_id= :id");
+          $sql = $db->prepare("SELECT `password` FROM `Coustomers` WHERE `id`=:id");
           $current = $sql->fetch();
           if($oldpass != $current){
             echo "wrong password";
           }
           if($pass == $conf){
-                  //echo "All good, 'registering user'";
                   $msg = "All good, your password is changed";
           }
           else{
-
-                  exit();
+            echo "passwords dont match";
+            exit();
           }
           $pass = password_hash($pass, PASSWORD_BCRYPT);
           require("config.php");
