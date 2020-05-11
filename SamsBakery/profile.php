@@ -63,6 +63,9 @@ if(        isset($_POST['password'])
           if($oldpass != $current){
             echo "wrong password";
           }
+          else{
+            echo "correct password";
+          }
           if($pass == $conf){
                   $msg = "All good, your password is changed";
           }
