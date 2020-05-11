@@ -55,7 +55,7 @@ if(        isset($_POST['password'])
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_post['password'];
-          $sql = $db->prepare("SELECT `password` FROM `Coustomers` WHERE `id`=:id");
+          $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
           $params = array(":id"=> $id);
           $current = $sql->fetch($params);
           if($oldpass != $current){
@@ -74,9 +74,9 @@ if(        isset($_POST['password'])
           try {
               $db = new PDO($connection_string, $dbuser, $dbpass);
               $stmt = $db->prepare("UPDATE `Coustomers`
-                      SET `password` = :password
-                      WHERE `id=$id` ");
-      $params = array(":password"=> $pass);
+                      SET password = :password
+                      WHERE id= :id ");
+      $params = array(":password"=> $pass, ":id"=> $id);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
       }
