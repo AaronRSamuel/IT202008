@@ -71,7 +71,7 @@ exit("It didn't work");
          (:item_id, :user_id, :item_name)");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
-      echo 'run';
+      echo "run";
     }
   }
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
