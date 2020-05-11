@@ -76,8 +76,8 @@ if(        isset($_POST['password'])
               $db = new PDO($connection_string, $dbuser, $dbpass);
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET `password` = :password
-                      WHERE `id`= $id ");
-      $params = array(":password"=> $pass);
+                      WHERE `id`= :id ");
+      $params = array(":password"=> $pass, ":id"=> $id);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
       }
