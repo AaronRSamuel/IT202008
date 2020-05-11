@@ -53,6 +53,7 @@ if(        isset($_POST['password'])
         && isset($_POST['newPassword'])
         && isset($_POST['confirm'])
         ){
+          echo "php start";
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
