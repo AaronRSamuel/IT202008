@@ -58,6 +58,7 @@ if(        isset($_POST['password'])
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
+          $oldpass = password_hash($oldpass, PASSWORD_BCRYPT);
           $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
           $params = array(":id"=> $id);
           $sql->execute($params);
