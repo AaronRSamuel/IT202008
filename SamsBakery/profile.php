@@ -54,6 +54,13 @@ if(        isset($_POST['password'])
         ){
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
+          $oldpass = $_post['password'];
+          $sql = $db->prepare("SELECT password from Coustomers where user_id= :id");
+          $current = $sql->fetch();
+          if($oldpass != $current){
+            echo "wrong password";
+            exit();
+          }
           if($pass == $conf){
                   //echo "All good, 'registering user'";
                   $msg = "All good, your password is changed";
@@ -68,8 +75,8 @@ if(        isset($_POST['password'])
           try {
               $db = new PDO($connection_string, $dbuser, $dbpass);
               $stmt = $db->prepare("UPDATE `Coustomers`
-                      SET `password = :password`
-                      WHERE `id=$id` ");
+                      SET `password` = :password
+                      WHERE `id`= $id ");
       $params = array(":password"=> $pass);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
