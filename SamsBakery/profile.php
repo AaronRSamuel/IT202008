@@ -56,7 +56,8 @@ if(        isset($_POST['password'])
           $conf = $_POST['confirm'];
           $oldpass = $_post['password'];
           $sql = $db->prepare("SELECT `password` FROM `Coustomers` WHERE `id`=:id");
-          $current = $sql->fetch();
+          $params = array(":id"=> $id);
+          $current = $sql->fetch($params);
           if($oldpass != $current){
             echo "wrong password";
           }
