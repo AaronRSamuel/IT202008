@@ -10,9 +10,8 @@ else{
 }
 
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db= new PDO($connection_string, $dbuser, $dbpass);
 try{
-  $db= new PDO($connection_string, $dbuser, $dbpass);
-  echo "should have connected";
   $query = "SELECT item_name, item_price from Cart WHERE user_id = 3";
   $sql = $db->prepare($query);
   $sql->execute();
@@ -62,7 +61,8 @@ exit("It didn't work");
 
 <?php
   if($_POST['order']){
-    $sql = $db->prepare("SELECT item_id, item_name from `Cart` where user_id= :id");
+    $query = "SELECT item_id, item_name from `Cart` where user_id= :id";
+    $sql = $db->prepare($query);
     $params = array(":id"=> $id);
     $sql->execute($params);
     while( $row = $sql->fetch()){
