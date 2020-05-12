@@ -61,6 +61,7 @@ exit("It didn't work");
 
 <?php
   if($_POST['order']){
+    echo "hi";
     $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = '".$id."'");
     $sql->execute($params);
     while( $row = $sql->fetch()){
