@@ -71,8 +71,7 @@ if(array_key_exists('Delete',$_POST)){
 function delete(){
   echo "delete";
   $order_id = $_POST['order'];
-  $query = "DELETE FROM Order WHERE id = '{$order_id}'";
-  $sql = $db->prepare($query);
-  $sql->execute();
+  $sql = $db->prepare("DELETE FROM `Order` WHERE id = :id");
+  $sql->execute(array(":id"=>$order_id));
 }
 ?>
