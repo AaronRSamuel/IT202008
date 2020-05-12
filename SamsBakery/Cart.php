@@ -63,7 +63,7 @@ exit("It didn't work");
   function order(){
     echo "hi";
     $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = '{$id}'");
-    $sql->execute($params);
+    $sql->execute();
     while( $row = $sql->fetch()){
       echo $row['item_id'];
       echo $row['item_name'];
