@@ -12,7 +12,7 @@ else{
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 try{
-  $query = "SELECT item_name, item_price from Cart WHERE user_id = 3";
+  $query = "SELECT item_name, item_id, item_price from Cart WHERE user_id = 3";
   $sql = $db->prepare($query);
   $sql->execute();
 }
@@ -62,7 +62,7 @@ exit("It didn't work");
 <?php
   function order(){
     echo "hi";
-    $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = 3");
+    $sql = $db->prepare("SELECT item_id, item_name from Cart WHERE user_id = 3");
     $sql->execute();
     while( $row = $sql->fetch()):
       echo $row['item_id'];
