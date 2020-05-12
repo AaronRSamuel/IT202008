@@ -62,7 +62,8 @@ exit("It didn't work");
 <?php
   function order(){
     echo "hi";
-    $sql = $db->prepare("SELECT item_id, item_name from Cart WHERE user_id = 3");
+    $query = "SELECT item_name, item_id, item_price from Cart WHERE user_id = 3";
+    $sql = $db->prepare($query);
     $sql->execute();
     while( $row = $sql->fetch()):
       echo $row['item_id'];
