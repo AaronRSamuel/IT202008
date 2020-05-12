@@ -66,10 +66,12 @@ exit("It didn't work");
     $params = array(":id"=> $id);
     $sql->execute($params);
     while( $row = $sql->fetch()){
+      echo $row['item_id'];
+      echo $row['item_name'];
       $stmt = $db->prepare("INSERT INTO `Orders`
          (item_id, user_id, comment, date_created) VALUES
-         (:item_id, :user_id, :item_name, current_timestamp)");
-      $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
+         (:item_id, :user_id, :item_name, :date_created)");
+      $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name'],":date_created" => );
       $stmt->execute($params);
       echo "run";
     }
