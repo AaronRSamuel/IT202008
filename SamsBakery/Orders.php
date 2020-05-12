@@ -1,13 +1,6 @@
 <?php
 require ("config.php");
-if(isset($_SESSION['id'])){
-  if($_SESSION['id'] == '3'){
-    echo 'hello admin';
-  }
-  else{
-    header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
-  }
-}
+if(isset($_SESSION['id'])){}
 else{
   header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
 }
