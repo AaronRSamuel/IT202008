@@ -54,13 +54,13 @@ exit("It didn't work");
     </tbody>
   </table>
     <form id = "order" method="post">
-      <input type="submit" value="order"/>
+      <input type="submit" name="order" id="order" value="order"/>
     </form>
   </body>
 </html>
 
 <?php
-  if($_POST['order']){
+  function order(){
     echo "hi";
     $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = '".$id."'");
     $sql->execute($params);
@@ -72,8 +72,10 @@ exit("It didn't work");
          (:item_id, :user_id, :item_name, current_timestamp)");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
-      echo "run";
+      echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
     }
   }
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  if(array_key_exists('order',$_POST)){
+   order();
+  }
 ?>
