@@ -64,7 +64,7 @@ exit("It didn't work");
     echo "hi";
     $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = 3");
     $sql->execute();
-    while( $row = $sql->fetch_row()):
+    while( $row = $sql->fetch()):
       echo $row['item_id'];
       echo $row['item_name'];
       $stmt = $db->prepare("INSERT INTO `Orders`
