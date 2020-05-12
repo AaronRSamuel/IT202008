@@ -1,3 +1,11 @@
+<?php
+session_start();
+if($_SESSION['id'] == 3){}
+else{
+  header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+}
+
+?>
 <html>
 <body>
   <div>
