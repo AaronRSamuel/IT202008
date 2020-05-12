@@ -70,8 +70,8 @@ exit("It didn't work");
       echo $row['item_name'];
       $stmt = $db->prepare("INSERT INTO `Orders`
          (item_id, user_id, comment, date_created) VALUES
-         (:item_id, :user_id, :item_name, :date_created)");
-      $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name'],":date_created" => );
+         (:item_id, :user_id, :item_name, current_timestamp)");
+      $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
       echo "run";
     }
