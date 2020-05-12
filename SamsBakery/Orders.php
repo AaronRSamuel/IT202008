@@ -69,8 +69,9 @@ if(array_key_exists('Delete',$_POST)){
  delete();
 }
 function delete(){
+  echo "delete";
   $order_id = $_POST['order'];
-  $query = "DELETE FROM Order WHERE id = $order_id";
+  $query = "DELETE FROM Order WHERE id = '{$order_id}'";
   $sql = $db->prepare($query);
   $sql->execute();
 }
