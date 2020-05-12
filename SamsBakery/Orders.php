@@ -1,7 +1,7 @@
 <?php
 require ("config.php");
 if(isset($_SESSION['id'])){
-  if($_SESSION['id'] == 3){
+  if($_SESSION['id'] == '3'){
     echo 'hello admin';
   }
   else{
