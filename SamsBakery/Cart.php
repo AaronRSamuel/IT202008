@@ -64,7 +64,7 @@ exit("It didn't work");
     echo "hi";
     $sql = $db->prepare("SELECT item_id, item_name from Cart where user_id = 3");
     $sql->execute();
-    while( $row = $sql->fetch()){
+    while( $row = $sql->fetch_row()):
       echo $row['item_id'];
       echo $row['item_name'];
       $stmt = $db->prepare("INSERT INTO `Orders`
@@ -73,7 +73,7 @@ exit("It didn't work");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-    }
+    endwhile;
   }
   if(array_key_exists('order',$_POST)){
    order();
