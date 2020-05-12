@@ -67,8 +67,8 @@ exit("It didn't work");
     $sql->execute($params);
     while( $row = $sql->fetch()){
       $stmt = $db->prepare("INSERT INTO `Orders`
-         (item_id, user_id, comment) VALUES
-         (:item_id, :user_id, :item_name)");
+         (item_id, user_id, comment, date_created) VALUES
+         (:item_id, :user_id, :item_name, current_timestamp)");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
       echo "run";
