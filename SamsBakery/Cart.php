@@ -53,7 +53,7 @@ exit("It didn't work");
       <?php endwhile ?>
     </tbody>
   </table>
-    <form id = "order">
+    <form id = "order" method="post">
       <input type="submit" value="order"/>
     </form>
   </body>
