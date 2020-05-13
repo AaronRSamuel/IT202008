@@ -46,13 +46,13 @@ else{
 </html>
 
 <?php
-require("config.php");
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-$db = new PDO($connection_string, $dbuser, $dbpass);
 if(        isset($_POST['password'])
         && isset($_POST['newPassword'])
         && isset($_POST['confirm'])
         ){
+          require("config.php");
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db = new PDO($connection_string, $dbuser, $dbpass);
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
