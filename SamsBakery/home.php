@@ -56,12 +56,14 @@ session_start();
     </div>
 		<div>
 			<form method="post">
-				<img src = "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId"/>
+				<img src = "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId"
+				height="42" width="42"/>
 				<button type="submit" name="Bread" value = "Bread">Bread</button>
 			</form>
 			<form method="post">
-				<img src = "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/20/0/PB0709H_Moist-and-Easy-Cornbread_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371597397695.jpeg"/>
-				<button type="submit" name="Corn Bread" value = "Corn Bread">Corn Bread</button>
+				<img src = "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/20/0/PB0709H_Moist-and-Easy-Cornbread_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371597397695.jpeg"
+				height="42" width="42"/>
+				<button type="submit" name="Corn_Bread" value = "Corn_Bread">Corn Bread</button>
 			</form>
 		</div>
 	</body>
@@ -81,7 +83,7 @@ if(isset($_POST["Bread"])) {
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
  }
- if(isset($_POST["Corn Bread"])) {
+ if(isset($_POST["Corn_Bread"])) {
  		$db= new PDO($connection_string, $dbuser, $dbpass);
  		$stmt = $db->prepare(" INSERT INTO `Cart`
            (user_id, item_id, item_name, item_price) VALUES
