@@ -56,16 +56,21 @@ exit("It didn't work");
     <form id = "order" method="post">
       <input type="submit" name="order" id="order" value="order"/>
     </form>
+    <form id = "Clear Order" method="post">
+      <input type="submit" name="clear" id="clear" value="clear"/>
+    </form>
   </body>
 </html>
 
 <?php
   function order(){
+    $id = $_SESSION['id'];
+    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+    $db= new PDO($connection_string, $dbuser, $dbpass);
     echo "hi";
-    $query = "SELECT item_name, item_id, item_price from Cart WHERE user_id = 3";
-    $sql = $db->prepare($query);
-    $sql->execute();
-    while( $row = $sql->fetch()):
+    $sql = $db->prepare("SELECT item_name, item_id, item_price from `Cart` WHERE user_id = :id");
+    $sql->execute(array(":id"=>$id));
+    while( $row = $sql->fetch()){
       echo $row['item_id'];
       echo $row['item_name'];
       $stmt = $db->prepare("INSERT INTO `Orders`
@@ -74,9 +79,16 @@ exit("It didn't work");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
       $stmt->execute($params);
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-    endwhile;
+    }
+  }
+  function clear(){
+    $sql = $db->prepare("DELETE FROM Cart WHERE user_id = :id");
+    $sql->execute(array(":id"=>$id));
   }
   if(array_key_exists('order',$_POST)){
    order();
+  }
+  if(array_key_exists('clear',$_POST)){
+   clear();
   }
 ?>
