@@ -70,17 +70,18 @@ exit("It didn't work");
       $db= new PDO($connection_string, $dbuser, $dbpass);
       echo "hi";
       $sql = $db->prepare("SELECT item_name, item_id, item_price from `Cart` WHERE user_id = :id");
-      $sql->execute(array(":id"=>$id));
-    while( $row = $sql->fetch()){
-      echo $row['item_id'];
-      echo $row['item_name'];
-      $stmt = $db->prepare("INSERT INTO `Orders`
-         (item_id, user_id, comment, date_created) VALUES
-         (:item_id, :user_id, :item_name, current_timestamp)");
-      $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
-      $r = $stmt->execute($params);
+      $r = $sql->execute(array(":id"=>$id));
       echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+      while( $row = $sql->fetch()){
+        echo $row['item_id'];
+        echo $row['item_name'];
+        $stmt = $db->prepare("INSERT INTO `Orders`
+            (item_id, user_id, comment, date_created) VALUES
+            (:item_id, :user_id, :item_name, current_timestamp)");
+        $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
+        $r = $stmt->execute($params);
+        echo "<pre>" . var_export($r, true) . "</pre>";
+        echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
     }
     }
     catch(Exception $e){
@@ -97,6 +98,7 @@ exit("It didn't work");
       $sql = $db->prepare("DELETE FROM `Cart` WHERE user_id = :id");
       $r = $sql->execute(array(":id"=>$id));
       echo "<pre>" . var_export($r, true) . "</pre>";
+      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     catch(Exception $e){
       echo $e->getMessage();
