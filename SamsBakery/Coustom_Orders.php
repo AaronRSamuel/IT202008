@@ -63,7 +63,7 @@ function comment(){
                   (user_id, comment) VALUES
                   (:user_id, :comment)");
   $params = array(":user_id"=> $_POST['user_id'], ":comment"=>$_POST['comment']);
-  $r = $sql->execute(array(":id"=>$id));
+  $r = $sql->execute($params);
   echo "<pre>" . var_export($r, true) . "</pre>";
   echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
