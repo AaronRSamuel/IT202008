@@ -63,6 +63,7 @@ exit("It didn't work");
 </html>
 
 <?php
+$id = $_SESSION['id'];
   function order(){
     try{
       require ("config.php");
