@@ -17,7 +17,6 @@ else{
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 try{
-  echo "should have connected";
   $sql = $db->prepare("SELECT id, user_id, phone_number, item_id, comment, date_created from Orders");
   $sql->execute();
 }
