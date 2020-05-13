@@ -50,7 +50,7 @@ exit("It didn't work");
   <input type="int" name="user_id" placeholder = "enter user id"/>
   <lable for="user_id"> Comment: </lable>
   <input type="text" name="comment" placeholder = "enter comment"/>
-  <input type="submit" value="commnet"/>
+  <input type="submit" value="comment"/>
 </form>
   </body>
 </html>
