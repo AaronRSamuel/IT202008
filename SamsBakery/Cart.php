@@ -65,11 +65,12 @@ exit("It didn't work");
 <?php
   function order(){
     try{
-    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-    $db= new PDO($connection_string, $dbuser, $dbpass);
-    echo "hi";
-    $sql = $db->prepare("SELECT item_name, item_id, item_price from `Cart` WHERE user_id = :id");
-    $sql->execute(array(":id"=>$id));
+      require ("config.php");
+      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+      $db= new PDO($connection_string, $dbuser, $dbpass);
+      echo "hi";
+      $sql = $db->prepare("SELECT item_name, item_id, item_price from `Cart` WHERE user_id = :id");
+      $sql->execute(array(":id"=>$id));
     while( $row = $sql->fetch()){
       echo $row['item_id'];
       echo $row['item_name'];
@@ -89,6 +90,7 @@ exit("It didn't work");
   }
   function clear(){
     try{
+      require ("config.php");
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
       echo "clear!";
