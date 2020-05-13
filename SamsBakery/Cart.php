@@ -63,9 +63,9 @@ exit("It didn't work");
 </html>
 
 <?php
-$id = $_SESSION['id'];
   function order(){
     try{
+      $id = $_SESSION['id'];
       require ("config.php");
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
@@ -92,6 +92,7 @@ $id = $_SESSION['id'];
   }
   function clear(){
     try{
+      $id = $_SESSION['id'];
       require ("config.php");
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
