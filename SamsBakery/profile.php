@@ -42,7 +42,7 @@ else{
       <lable for ="conf"> Confirm Password:</lable>
       <input type ="password" id= "conf" name="confirm" placeholder = Confirm passowrd/>
       <br>
-      <input type="submit" value="Change Password" style="height:50px; width:100px" />
+      <input type="submit" value="Change Password" style="height:50px; width:150px" />
     </form>
   </body>
 </html>
