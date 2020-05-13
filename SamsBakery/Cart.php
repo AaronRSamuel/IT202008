@@ -19,6 +19,7 @@ catch(Exception $e){
 echo $e->getMessage();
 exit("It didn't work");
 }
+$total = 0;
 ?>
 <html lang="en">
   <head>
@@ -48,9 +49,11 @@ exit("It didn't work");
       <tr>
           <td><?php echo $row['item_name']; ?></td>
           <td><?php echo $row['item_price']; ?></td>
+          <?php  $total = $total + $row['itme_price']; ?>
       </tr>
       <?php endwhile ?>
     </tbody>
+    Total = <?php echo $total; ?>
   </table>
     <form id = "order" method="post">
       <input type="submit" name="order" id="order" value="order"/>
@@ -82,12 +85,14 @@ exit("It didn't work");
         $r = $stmt->execute($params);
         echo "<pre>" . var_export($r, true) . "</pre>";
         echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+
     }
     }
     catch(Exception $e){
     echo $e->getMessage();
     exit("It didn't work");
     }
+    clear();
   }
   function clear(){
     try{
