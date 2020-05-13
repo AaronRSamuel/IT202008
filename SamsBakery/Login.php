@@ -30,6 +30,8 @@ session_start();
 		<div align = "right">
 			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Logout.php';"
 			type="button" name="Logout" > Logout</button>
+      <button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/register.php';"
+			type="button" name="Register" > Register</button>
 			<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php';"
 			type="button" name="Home"> Home</button>
 		</div>
