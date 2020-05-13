@@ -14,12 +14,12 @@ $db= new PDO($connection_string, $dbuser, $dbpass);
 try{
   $sql = $db->prepare("SELECT comment from Comment WHERE user_id = :id");
   $sql->execute(array(":id"=>$id));
+  echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
 catch(Exception $e){
 echo $e->getMessage();
 exit("It didn't work");
 }
-$total = 0;
 ?>
 <html>
   <head>
@@ -33,7 +33,6 @@ $total = 0;
     name="button"> Profile</button>
   </head>
   <body>
-    <center> Comments: </center>
     <table id = "Comments">
       <thread>
       <tr>
