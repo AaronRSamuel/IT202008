@@ -16,6 +16,8 @@ else{
     type="button" name="Logout" > Logout</button>
     <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/Cart.php';"
  		  name="button"> Cart</button>
+    <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/notifications.php';"
+   	  name="button"> Notifications</button>
   </head>
   <style>
   .button {
