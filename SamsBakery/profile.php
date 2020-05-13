@@ -58,6 +58,7 @@ if(        isset($_POST['password'])
           $pass = $_POST['newPassword'];
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
+          $id = $_SESSION['id'];
           $oldpass = password_hash($oldpass, PASSWORD_BCRYPT);
           if($pass == $conf){
                   $msg = "All good, your password is changed";
