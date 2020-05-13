@@ -83,6 +83,9 @@ exit("It didn't work");
     }
   }
   function clear(){
+    $id = $_SESSION['id'];
+    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+    $db= new PDO($connection_string, $dbuser, $dbpass);
     echo "clear!";
     $sql = $db->prepare("DELETE FROM `Cart` WHERE user_id = :id");
     $r = $sql->execute(array(":id"=>$id));
