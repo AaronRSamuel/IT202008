@@ -19,7 +19,6 @@ catch(Exception $e){
 echo $e->getMessage();
 exit("It didn't work");
 }
-$total = 0;
 ?>
 <html lang="en">
   <head>
@@ -53,7 +52,6 @@ $total = 0;
       </tr>
       <?php endwhile ?>
     </tbody>
-    Total = <?php echo $total; ?>
   </table>
     <form id = "order" method="post">
       <input type="submit" name="order" id="order" value="order"/>
@@ -85,7 +83,6 @@ $total = 0;
         $r = $stmt->execute($params);
         echo "<pre>" . var_export($r, true) . "</pre>";
         echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-
     }
     }
     catch(Exception $e){
