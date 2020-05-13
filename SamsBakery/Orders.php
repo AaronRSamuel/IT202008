@@ -73,5 +73,6 @@ function delete(){
   $order_id = $_POST['order'];
   $sql = $db->prepare("DELETE FROM `Order` WHERE id = :id");
   $sql->execute(array(":id"=>$order_id));
+  echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
 ?>
