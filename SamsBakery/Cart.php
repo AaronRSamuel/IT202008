@@ -49,7 +49,7 @@ $total = 0;
       <tr>
           <td><?php echo $row['item_name']; ?></td>
           <td><?php echo $row['item_price']; ?></td>
-          <?php  $total = $total + $row['itme_price']; ?>
+          <?php  $total = $total + (int)$row['itme_price']; ?>
       </tr>
       <?php endwhile ?>
     </tbody>
