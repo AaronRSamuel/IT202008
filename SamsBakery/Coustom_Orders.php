@@ -22,7 +22,10 @@ exit("It didn't work");
 
 <html lang="en" dir="ltr">
   <head>
-    <title></title>
+    <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/profile.php';"
+       name="button"> Profile</button>
+    <button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php';"
+       type="button" name="Home"> Home</button>
   </head>
   <body>
     <table>
