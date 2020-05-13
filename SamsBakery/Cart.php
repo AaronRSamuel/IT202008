@@ -82,13 +82,14 @@ exit("It didn't work");
     }
   }
   function clear(){
+    echo "clear!";
     $sql = $db->prepare("DELETE FROM Cart WHERE user_id = :id");
     $sql->execute(array(":id"=>$id));
   }
-  if(array_key_exists('order',$_POST)){
+  if(isset($_POST["order"])) {{
    order();
   }
-  if(array_key_exists('clear',$_POST)){
+  if(isset($_POST["clear"])) {{
    clear();
   }
 ?>
