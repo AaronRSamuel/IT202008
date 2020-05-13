@@ -69,6 +69,8 @@ if(array_key_exists('Delete',$_POST)){
  delete();
 }
 function delete(){
+  $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+  $db= new PDO($connection_string, $dbuser, $dbpass);
   echo "delete";
   $order_id = $_POST['order'];
   $sql = $db->prepare("DELETE FROM `Orders` WHERE id = :id");
