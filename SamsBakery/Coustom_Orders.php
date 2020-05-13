@@ -55,20 +55,17 @@ exit("It didn't work");
   </body>
 </html>
 <?php
-function comment(){
+if(isset($_POST["submit"])) {
   echo "hi";
   require ("config.php");
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  $sql = $db->prepare("INSERT INTO `Commnets`
+  $sql = $db->prepare("INSERT INTO `Comment`
                   (user_id, comment) VALUES
                   (:user_id, :comment)");
   $params = array(":user_id"=> $_POST['user_id'], ":comment"=>$_POST['comment']);
   $r = $sql->execute($params);
   echo "<pre>" . var_export($r, true) . "</pre>";
   echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-}
-if(isset($_POST["submit"])) {
- comment();
 }
  ?>
