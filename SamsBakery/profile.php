@@ -59,16 +59,6 @@ if(        isset($_POST['password'])
           $conf = $_POST['confirm'];
           $oldpass = $_POST['password'];
           $oldpass = password_hash($oldpass, PASSWORD_BCRYPT);
-          $sql = $db->prepare("SELECT password FROM `Coustomers` WHERE id=:id");
-          $params = array(":id"=> $id);
-          $sql->execute($params);
-          $current = $sql->fetch(PDO::FETCH_ASSOC);
-          if($oldpass != $current){
-            echo "wrong password";
-          }
-          else{
-            echo "correct password";
-          }
           if($pass == $conf){
                   $msg = "All good, your password is changed";
           }
@@ -76,13 +66,12 @@ if(        isset($_POST['password'])
             echo "passwords dont match";
             exit();
           }
-          $pass = password_hash($pass, PASSWORD_BCRYPT);
-          echo "hashed";
+          $passhash = password_hash($pass, PASSWORD_BCRYPT);
           try {
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET password = :password
                       WHERE id= :id ");
-              $params = array(":password"=> $pass, ":id"=> $id);
+              $params = array(":password"=> $passhash, ":id"=> (int)$id);
               $stmt->execute($params);
               echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
             }
