@@ -77,14 +77,16 @@ exit("It didn't work");
          (item_id, user_id, comment, date_created) VALUES
          (:item_id, :user_id, :item_name, current_timestamp)");
       $params = array(":item_id" => $row['item_id'], ":user_id"=> $id, ":item_name"=> $row['item_name']);
-      $stmt->execute($params);
+      $r = $stmt->execute($params);
+      echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
     }
   }
   function clear(){
     echo "clear!";
-    $sql = $db->prepare("DELETE FROM Cart WHERE user_id = :id");
-    $sql->execute(array(":id"=>$id));
+    $sql = $db->prepare("DELETE FROM `Cart` WHERE user_id = :id");
+    $r = $sql->execute(array(":id"=>$id));
+    echo "<pre>" . var_export($r, true) . "</pre>";
   }
   if(isset($_POST["order"])) {
    order();
