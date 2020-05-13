@@ -64,7 +64,7 @@ exit("It didn't work");
 
 <?php
   function order(){
-    $id = $_SESSION['id'];
+    try{
     $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
     $db= new PDO($connection_string, $dbuser, $dbpass);
     echo "hi";
@@ -81,15 +81,25 @@ exit("It didn't work");
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
     }
+    }
+    catch(Exception $e){
+    echo $e->getMessage();
+    exit("It didn't work");
+    }
   }
   function clear(){
-    $id = $_SESSION['id'];
-    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-    $db= new PDO($connection_string, $dbuser, $dbpass);
-    echo "clear!";
-    $sql = $db->prepare("DELETE FROM `Cart` WHERE user_id = :id");
-    $r = $sql->execute(array(":id"=>$id));
-    echo "<pre>" . var_export($r, true) . "</pre>";
+    try{
+      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+      $db= new PDO($connection_string, $dbuser, $dbpass);
+      echo "clear!";
+      $sql = $db->prepare("DELETE FROM `Cart` WHERE user_id = :id");
+      $r = $sql->execute(array(":id"=>$id));
+      echo "<pre>" . var_export($r, true) . "</pre>";
+    }
+    catch(Exception $e){
+      echo $e->getMessage();
+      exit("It didn't work");
+    }
   }
   if(isset($_POST["order"])) {
    order();
