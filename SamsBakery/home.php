@@ -57,12 +57,12 @@ session_start();
 		<div>
 			<form method="post">
 				<img src = "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId"
-				height="42" width="42"/>
+				height="100" width="100"/>
 				<button type="submit" name="Bread" value = "Bread">Bread</button>
 			</form>
 			<form method="post">
 				<img src = "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/20/0/PB0709H_Moist-and-Easy-Cornbread_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371597397695.jpeg"
-				height="42" width="42"/>
+				height="100" width="100"/>
 				<button type="submit" name="Corn_Bread" value = "Corn_Bread">Corn Bread</button>
 			</form>
 		</div>
