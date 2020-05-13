@@ -45,7 +45,7 @@ exit("It didn't work");
         <?php endwhile ?>
     </tbody>
 </table>
-<form>
+<form method = "post">
   <lable for="user_id"> User ID: </lable>
   <input type="int" name="user_id" placeholder = "enter user id"/>
   <lable for="user_id"> Comment: </lable>
@@ -55,7 +55,7 @@ exit("It didn't work");
   </body>
 </html>
 <?php
-if(isset($_POST["submit"])) {
+if(isset($_POST['submit'])) {
   echo "hi";
   require ("config.php");
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
