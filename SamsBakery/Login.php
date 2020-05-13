@@ -77,6 +77,13 @@ session_start();
   			$userpassword = $result['password'];
   			if(password_verify($pass, $userpassword)){
   				$id = $result['id'];
+  				//echo "You logged in with id of " . $id;
+  				$stmt = $db->prepare("SELECT r.id, r.role_name from `Roles` r JOIN `UserRoles` ur on r.id = ur.role_id where ur.user_id = :id");
+  				$stmt->execute(array(":id"=>$id));
+  				$roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  				if(!$roles){
+  					$roles = array();
+  				}
   				$user = array(
   					"id" => $id,
   					"email"=>$result['email'],
