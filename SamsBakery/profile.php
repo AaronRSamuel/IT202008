@@ -67,6 +67,7 @@ if(        isset($_POST['password'])
             exit();
           }
           $passhash = password_hash($pass, PASSWORD_BCRYPT);
+          echo (int)$id;
           try {
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET password = :password
