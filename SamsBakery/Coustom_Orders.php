@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['id'];
 require ("config.php");
 if(isset($_SESSION['id'])){
   echo $_SESSION['id'];
@@ -12,7 +11,6 @@ else{
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  echo "should have connected";
   $sql = $db->prepare("SELECT user_id, phone_number, comment, date_created from Orders where item_id= '33'");
   $sql->execute();
 }
@@ -48,7 +46,28 @@ exit("It didn't work");
     </tbody>
 </table>
 <form>
-
+  <lable for="user_id"> User ID: </lable>
+  <input type="int" name="user_id" placeholder = "enter user id"/>
+  <lable for="user_id"> Comment: </lable>
+  <input type="text" name="comment" placeholder = "enter comment"/>
+  <input type="submit" value="commnet"/>
 </form>
   </body>
 </html>
+<?php
+function comment(){
+  require ("config.php");
+  $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+  $db= new PDO($connection_string, $dbuser, $dbpass);
+  $sql = $db->prepare("INSERT INTO `Commnets`
+                  (user_id, comment) VALUES
+                  (:user_id, :comment)");
+  $params = array(":user_id"=> $_POST['user_id'], ":comment"=>$_POST['comment]');
+  $r = $sql->execute(array(":id"=>$id));
+  echo "<pre>" . var_export($r, true) . "</pre>";
+  echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+}
+if(isset($_POST["comment"])) {
+ comment();
+}
+ ?>
