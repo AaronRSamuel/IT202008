@@ -86,10 +86,10 @@ exit("It didn't work");
     $sql = $db->prepare("DELETE FROM Cart WHERE user_id = :id");
     $sql->execute(array(":id"=>$id));
   }
-  if(isset($_POST["order"])) {{
+  if(isset($_POST["order"])) {
    order();
   }
-  if(isset($_POST["clear"])) {{
+  if(isset($_POST["clear"])) {
    clear();
   }
 ?>
