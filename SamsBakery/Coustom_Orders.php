@@ -50,7 +50,7 @@ exit("It didn't work");
   <input type="int" name="user_id" placeholder = "enter user id"/>
   <lable for="user_id"> Comment: </lable>
   <input type="text" name="comment" placeholder = "enter comment"/>
-  <input type="submit" value="comment"/>
+  <input type="submit" value="submit"/>
 </form>
   </body>
 </html>
@@ -68,7 +68,7 @@ function comment(){
   echo "<pre>" . var_export($r, true) . "</pre>";
   echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
-if(isset($_POST["comment"])) {
+if(isset($_POST["submit"])) {
  comment();
 }
  ?>
