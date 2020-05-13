@@ -1,4 +1,10 @@
 <html>
+<header>
+  <button class = "button" type="button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/profile.php';"
+     name="button"> Profile</button>
+  <button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php';"
+     type="button" name="Home"> Home</button>
+</header>
 <body>
   <div>
     <center><form name="coustom" id="coustom" method="POST">
