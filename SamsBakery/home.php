@@ -64,7 +64,6 @@ exit("It didn't work");
         <center> Menu </center>
     </div>
 		<div>
-			<?php while( $row = $sql->fetch()) : ?>
 			<form method="post">
 				<img src = "https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-02/the-easiest-loaf-of-bread-youll-ever-bake.jpg?itok=j89yDeId"/>
 				<button type="submit" name="Bread" value = "Bread">Bread</button>
