@@ -68,15 +68,12 @@ if(        isset($_POST['password'])
             exit();
           }
           $passhash = password_hash($pass, PASSWORD_BCRYPT);
-          echo (int)$id;
           try {
               $stmt = $db->prepare("UPDATE `Coustomers`
                       SET password = :password
                       WHERE id= :id ");
               $params = array(":password"=> $passhash, ":id"=> (int)$id);
               $r = $stmt->execute($params);
-              echo "<pre>" . var_export($r, true) . "</pre>";
-              echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
             }
         catch(Exception $e){
               echo $e->getMessage();
