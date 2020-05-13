@@ -71,7 +71,7 @@ exit("It didn't work");
 			</form>
 			<form method="post">
 				<img src = "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/20/0/PB0709H_Moist-and-Easy-Cornbread_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371597397695.jpeg"/>
-				<button type="submit" name="Corn Bread" value = "Corn Bread">Corn Bread</button>
+				<button type="submit" name="Corn_Bread" value = "Corn_Bread">Corn Bread</button>
 			</form>
 		</div>
 	</body>
@@ -94,7 +94,7 @@ if(isset($_POST["Bread"])) {
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
  }
- if(isset($_POST["Corn Bread"])) {
+ if(isset($_POST["Corn_Bread"])) {
  		$db= new PDO($connection_string, $dbuser, $dbpass);
  		$sql = $db->prepare("SELECT item_price from tblproduct where code = 2");
  		$sql->execute();
@@ -102,7 +102,7 @@ if(isset($_POST["Bread"])) {
  		$stmt = $db->prepare(" INSERT INTO `Cart`
            (user_id, item_id, item_name, item_price) VALUES
            (:user_ID, :item_id, :item_name, :item_price)");
-     $params = array(":user_ID"=> $user_Id, ":item_id" => 1, ":item_name" => "Corn Bread", ":item_price" => (int)$r['price']);
+     $params = array(":user_ID"=> $user_Id, ":item_id" => 1, ":item_name" => "Corn_Bread", ":item_price" => (int)$r['price']);
      $stmt->execute($params);
      echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
   }
