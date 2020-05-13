@@ -3,7 +3,7 @@ session_start();
 require ("config.php");
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  $sql = $db->prepare("SELECT name, code, image, price from tblproduct");
+  $sql = $db->prepare("SELECT name, code, image, price from `tblproduct`");
   $sql->execute();
 }
 catch(Exception $e){
@@ -83,7 +83,7 @@ $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
 if(isset($_POST["Bread"])) {
 		$db= new PDO($connection_string, $dbuser, $dbpass);
-		$sql = $db->prepare("SELECT item_price from tblproduct where code = 1");
+		$sql = $db->prepare("SELECT item_price from `tblproduct` where code = 1");
 		$sql->execute();
 		$r = $sql->fetch();
 		$stmt = $db->prepare(" INSERT INTO `Cart`
@@ -95,7 +95,7 @@ if(isset($_POST["Bread"])) {
  }
  if(isset($_POST["Corn_Bread"])) {
  		$db= new PDO($connection_string, $dbuser, $dbpass);
- 		$sql = $db->prepare("SELECT item_price from tblproduct where code = 2");
+ 		$sql = $db->prepare("SELECT item_price from `tblproduct` where code = 2");
  		$sql->execute();
  		$r = $sql->fetch();
  		$stmt = $db->prepare(" INSERT INTO `Cart`
