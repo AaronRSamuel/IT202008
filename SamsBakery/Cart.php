@@ -102,6 +102,7 @@ exit("It didn't work");
       $r = $sql->execute(array(":id"=>$id));
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+      header("Refresh:0");
     }
     catch(Exception $e){
       echo $e->getMessage();
