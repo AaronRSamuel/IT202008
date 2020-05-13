@@ -2,9 +2,7 @@
 session_start();
 $id = $_SESSION['id'];
 require ("config.php");
-if(isset($_SESSION['id'])){
-  echo $_SESSION['id'];
-}
+if(isset($_SESSION['id'])){}
 else{
   header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
 }
@@ -14,7 +12,6 @@ $db= new PDO($connection_string, $dbuser, $dbpass);
 try{
   $sql = $db->prepare("SELECT comment from Comment WHERE user_id = :id");
   $sql->execute(array(":id"=>$id));
-  echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
 catch(Exception $e){
 echo $e->getMessage();
