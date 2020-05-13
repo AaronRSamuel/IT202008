@@ -58,7 +58,7 @@ exit("It didn't work");
 </table>
 <form method="POST">
     <label for="order"> Order ID to Delete</label>
-    <input type ="int" id = "order" name= "name" placeholder= ORDER int/>
+    <input type ="int" id = "order" name= "order" placeholder= "Order ID" int/>
     <input type="submit" name="Delete" id="Delete" value="Delete"/>
 </form>
   </body>
@@ -71,7 +71,7 @@ if(array_key_exists('Delete',$_POST)){
 function delete(){
   echo "delete";
   $order_id = $_POST['order'];
-  $sql = $db->prepare("DELETE FROM Orders WHERE id = :id");
+  $sql = $db->prepare("DELETE FROM `Orders` WHERE id = :id");
   $sql->execute(array(":id"=>$order_id));
   echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 }
