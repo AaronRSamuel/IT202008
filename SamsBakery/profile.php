@@ -72,7 +72,8 @@ if(        isset($_POST['password'])
                       SET password = :password
                       WHERE id= :id ");
               $params = array(":password"=> $passhash, ":id"=> (int)$id);
-              $stmt->execute($params);
+              $r = $stmt->execute($params);
+              echo "<pre>" . var_export($r, true) . "</pre>";
               echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
             }
         catch(Exception $e){
