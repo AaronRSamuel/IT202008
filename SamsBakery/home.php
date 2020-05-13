@@ -1,5 +1,6 @@
 <?php
 session_start();
+require ("config.php");
 try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
   $sql = $db->prepare("SELECT name, code, image, price from tblproduct");
@@ -77,7 +78,6 @@ exit("It didn't work");
 </html>
 
 <?php
-require ("config.php");
 $user_Id = $_SESSION['id'];
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 
