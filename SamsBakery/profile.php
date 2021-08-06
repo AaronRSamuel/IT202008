@@ -4,7 +4,6 @@ if(isset($_SESSION['id'])){}
 else{
   header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
 }
-
 ?>
 
 <html>

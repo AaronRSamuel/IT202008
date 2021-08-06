@@ -2,6 +2,9 @@
 session_start();
 require ("config.php");
 if(isset($_SESSION['id'])){
+  if((int)$_SESSION['id'] != 3){
+    header("Location: https://web.njit.edu/~as3655/IT202008/SamsBakery/home.php");
+  }
   echo $_SESSION['id'];
 }
 else{
